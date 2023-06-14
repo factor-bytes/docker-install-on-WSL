@@ -59,6 +59,12 @@ docker -H unix:///mnt/wsl/shared-docker/docker.sock run --rm hello-world
 ```
 To always run dockerd automatically
 Add the following to .bashrc or .profile (make sure “DOCKER_DISTRO” matches your distro, you can check it by running “wsl -l -q” in Powershell)
+
+Edit .bashrc
+```
+vi ~/.bashrc
+```
+
 ```
 DOCKER_DISTRO="Ubuntu-20.04"
 DOCKER_DIR=/mnt/wsl/shared-docker
