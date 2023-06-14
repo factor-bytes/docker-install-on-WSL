@@ -41,7 +41,18 @@ sudo <your_text_editor> /etc/docker/daemon.json
 Note! Debian will also need the additional configuration to the same file
 "iptables": false
 Now you’re ready to launch dockerd and see if it works
-Run command “sudo dockerd” - if the command ends with “API listen on /mnt/wsl/shared-docker/docker.sock”, things are working
+Run command 
+```
+sudo dockerd
+```
+If the command ends with “API listen on /mnt/wsl/shared-docker/docker.sock”, things are working
+If docker fails to start with an error something like "iptables failed"
+
+Run the following commands for Ubuntu 22.0
+```
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+```
 You can perform an additional test by opening a new terminal and running
 ```
 docker -H unix:///mnt/wsl/shared-docker/docker.sock run --rm hello-world
